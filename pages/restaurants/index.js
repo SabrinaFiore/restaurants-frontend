@@ -7,8 +7,10 @@ export default function Restaurants({restaurants}) {
 		.then((data) => {
 				console.log('data', data);
 		})
-	}, [])  
+	}, [])
+
 	console.log('restaurants', restaurants);
+	
 	return (
 		<>
 			<h1>Lista Ristoranti</h1>

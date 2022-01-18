@@ -26,7 +26,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({params}) {
 	const result = await fetch(`http://localhost:1337/api/restaurants/${params.id}`);
 	const data =  await result.json();
-
 	const restaurant = data.data;
 
 	console.log("getStaticPaths", restaurant);

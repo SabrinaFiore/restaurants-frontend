@@ -1,11 +1,12 @@
 import '../styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import Link from 'next/link';
 
 function MyApp({ Component, pageProps }) {
   return <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Navbar</a>
+        <Link className="navbar-brand" href="/restaurants">Restaurants</Link>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -16,9 +17,6 @@ function MyApp({ Component, pageProps }) {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Pricing</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled">Disabled</a>
             </li>
           </ul>
         </div>
