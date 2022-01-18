@@ -1,6 +1,6 @@
-export default function Restaurant() {
+export default function Restaurant({restaurant}) {
 	return <>
-		<h1>Benvenuto nel ristorante</h1>
+		<h1>Benvenuto nel ristorante {restaurant.attributes.name}</h1>
 	</>
 }
 
@@ -14,16 +14,21 @@ export async function getStaticPaths() {
 		}
 	})
 
-	console.log("getStaticPaths");
-
 	return {
 		paths,
 		fallback: false
 	}
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({params}) {
+	const result = await fetch(`http://localhost:1337/api/restaurants/${params.id}`);
+	const data =  await result.json();
+
+	const restaurant = data.data;
+
+	console.log("getStaticPaths", restaurant);
+
 	return {
-		props: {}
+		props: {restaurant}
 	}
 }
