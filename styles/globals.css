@@ -11,6 +11,17 @@ a {
   text-decoration: none;
 }
 
+li {
+  text-decoration: none;
+  text-transform: none;
+}
+
+ul { list-style-type: none ;  }
+
+.container-fluid {
+  width: 100%;
+}
+
 * {
   box-sizing: border-box;
 }

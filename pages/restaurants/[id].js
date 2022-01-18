@@ -1,9 +1,11 @@
 export default function Restaurant({restaurant}) {
 	return <>
 		<h1>Benvenuto nel ristorante {restaurant.attributes.name}</h1>
+		<h2>Abbiamo {restaurant.attributes.seat} posti a sedere</h2>
 	</>
 }
 
+// getStaticPaths: to create static path
 export async function getStaticPaths() {
 	const result = await fetch('http://localhost:1337/api/restaurants');
 	const restaurants =  await result.json();
@@ -16,10 +18,11 @@ export async function getStaticPaths() {
 
 	return {
 		paths,
-		fallback: false
+		fallback: true
 	}
 }
 
+// getStaticProps: to take data from API and get them to Restaurant component
 export async function getStaticProps({params}) {
 	const result = await fetch(`http://localhost:1337/api/restaurants/${params.id}`);
 	const data =  await result.json();
